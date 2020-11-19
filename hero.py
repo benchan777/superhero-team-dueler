@@ -14,7 +14,7 @@ class Hero:
   def fight(self, opponent):
       opponent_list = []
       opponent_list.append(self.name)
-      opponent_list.append(opponent)
+      opponent_list.append(opponent.name)
       print(f"{random.choice(opponent_list)} won!")
 
 if __name__ == "__main__":
