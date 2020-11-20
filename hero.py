@@ -23,11 +23,23 @@ class Hero:
       opponent_list.append(opponent.name)
       print(f"{random.choice(opponent_list)} won!")
 
-if __name__ == "__main__":
-    my_hero = Hero("Grace Hopper", 200)
-    print(my_hero.name)
-    print(my_hero.current_health)
+  def add_ability(self, ability):
+    ''' Add ability to abilities list '''
+    self.abilities.append(ability)
 
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
-    hero1.fight(hero2)
+  def attack(self):
+    ''' Calculate the total damage from all ability attacks.
+        return: total_damage:Int
+    '''
+    total_damage = 0
+    for ability in self.abilities:
+      total_damage += ability.attack()
+    return total_damage
+
+if __name__ == "__main__":
+  ability = Ability("Great Debugging", 50)
+  another_ability = Ability("Smarty Pants", 90)
+  hero = Hero("Grace Hopper", 200)
+  hero.add_ability(ability)
+  hero.add_ability(another_ability)
+  print(hero.attack())
