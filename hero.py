@@ -27,6 +27,12 @@ class Hero:
     ''' Add ability to abilities list '''
     self.abilities.append(ability)
 
+  def add_armors(self, armor):
+    ''' Add armor to self.armors
+        Armor: Armor Object
+    '''
+    self.armors.append(armor)
+
   def attack(self):
     ''' Calculate the total damage from all ability attacks.
         return: total_damage:Int
@@ -36,10 +42,29 @@ class Hero:
       total_damage += ability.attack()
     return total_damage
 
+  def defend(self):
+    ''' Calculate the total block amount from all armor blocks.
+        return: total_block:Int
+    '''
+    total_block = 0
+    for armor in self.armors:
+      total_block += armor.block()
+    return total_block
+
+  def take_damage(self):
+    ''' Updates self.current_health to reflect the damage minus the defense.
+    '''
+    
+
 if __name__ == "__main__":
   ability = Ability("Great Debugging", 50)
   another_ability = Ability("Smarty Pants", 90)
+  armor = Armor("Big Shield", 30)
+  armor2 = Armor("Helmet", 10)
   hero = Hero("Grace Hopper", 200)
   hero.add_ability(ability)
   hero.add_ability(another_ability)
+  hero.add_armors(armor)
+  hero.add_armors(armor2)
   print(hero.attack())
+  print(hero.defend())
