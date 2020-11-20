@@ -16,6 +16,6 @@ class Armor:
         return random_value
 
 if __name__ == '__main__':
-    armor = Armor('Debugging Armor', 25)
+    armor = Armor('Debugging Shield', 10)
     print(armor.name)
     print(armor.block())
