@@ -1,12 +1,18 @@
 import random
+from ability import Ability
+from armor import Armor
 
 class Hero:
   def __init__(self, name, starting_health=100):
       '''Instance properties:
+        abilities: List
+        armors: List
         name: String
         starting_health: Integer
         current_health: Integer
       '''
+      self.abilities = list()
+      self.armors = list()
       self.name = name
       self.starting_health = starting_health
       self.current_health = starting_health
