@@ -17,11 +17,11 @@ class Hero:
       self.starting_health = starting_health
       self.current_health = starting_health
 
-  def fight(self, opponent):
-      opponent_list = []
-      opponent_list.append(self.name)
-      opponent_list.append(opponent.name)
-      print(f"{random.choice(opponent_list)} won!")
+  # def fight(self, opponent):
+  #     opponent_list = []
+  #     opponent_list.append(self.name)
+  #     opponent_list.append(opponent.name)
+  #     print(f"{random.choice(opponent_list)} won!")
 
   def add_ability(self, ability):
     ''' Add ability to abilities list '''
@@ -74,11 +74,39 @@ class Hero:
   def fight(self, opponent):
     ''' Current Hero will take turns fighting the opponent hero passed in.
     '''
-    
+    if not self.abilities and opponent.abilities:
+      print("Draw")
+    else:
+      while self.current_health and opponent.current_health > 0:
+        opponent.take_damage(self.attack())
+        self.take_damage(opponent.attack())
+
+      if self.current_health > opponent.current_health:
+        print(f"{self.name} won!")
+      else:
+        print(f"{opponent.name} won!")
+
+        # if opponent.is_alive() == "True":
+        #   break
+        # else:
+        #   print(f"{self.name} won!")
+
+        # self.take_damage(opponent.attack())
+
+        # if self.is_alive() == "True":
+        #   break
+        # else:
+        #   print(f"{opponent.name} won!")
 
 if __name__ == "__main__":
-  hero = Hero("Grace Hopper", 200)
-  hero.take_damage(150)
-  print(hero.is_alive())
-  hero.take_damage(15000)
-  print(hero.is_alive())
+  hero1 = Hero("Wonder Woman")
+  hero2 = Hero("Dumbledore")
+  ability1 = Ability("Super Speed", 300)
+  ability2 = Ability("Super Eyes", 130)
+  ability3 = Ability("Wizard Wand", 800)
+  ability4 = Ability("Wizard Beard", 20)
+  hero1.add_ability(ability1)
+  hero1.add_ability(ability2)
+  hero2.add_ability(ability3)
+  hero2.add_ability(ability4)
+  hero1.fight(hero2)
