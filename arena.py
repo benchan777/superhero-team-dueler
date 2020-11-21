@@ -56,3 +56,21 @@ class Arena:
            elif add_item == "3":
                hero.add_armors(self.create_armor())
         return hero
+
+    def build_team_one(self):
+        '''Prompt the user to build team_one '''
+        numOfTeamMembers = int(input("How many members would you like on Team One?\n"))
+        for i in range(numOfTeamMembers):
+            hero = self.create_hero()
+            self.team_one.add_hero(hero)
+
+    def build_team_two(self):
+        '''Prompt the user to build team_two'''
+        numOfTeamMembers = int(input("How many members would you like on Team Two?\n"))
+        for i in range(numOfTeamMembers):
+            hero = self.create_hero()
+            self.team_two.add_hero(hero)
+
+    def team_battle(self):
+        '''Battle team_one and team_two together.'''
+        self.team_one.attack(self.team_two)
