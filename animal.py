@@ -15,7 +15,7 @@ class Frog(Animal):
 my_dog = Animal("Sophie")
 my_dog.eat()
 my_dog.drink()
-my_dog.jump()
+# my_dog.jump()
 
 frog = Frog("Tim")
 frog.jump()
