@@ -19,3 +19,10 @@ class Team:
         
         if not foundHero:
             return 0
+
+    def view_all_heroes(self):
+        ''' Prints out all heroes to the console. '''
+        for hero in self.heroes:
+            print(hero)
+
+    
