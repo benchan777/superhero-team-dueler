@@ -85,8 +85,12 @@ class Hero:
         self.take_damage(opponent.attack())
 
       if self.current_health > opponent.current_health:
+        self.add_kill(1)
+        opponent.add_death(1)
         print(f"{self.name} won!")
       else:
+        opponent.add_kill(1)
+        self.add_death(1)
         print(f"{opponent.name} won!")
 
         # if opponent.is_alive() == "True":
