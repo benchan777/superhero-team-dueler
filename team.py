@@ -5,3 +5,17 @@ class Team:
         '''
         self.name = name
         self.heroes = list()
+
+    def remove_hero(self, name):
+        ''' Remove hero from heroes list.
+        If Hero isn't found, return 0.
+        '''
+        foundHero = False
+
+        for hero in self.heroes:
+            if hero.name == name:
+                self.heroes.remove(hero)
+                foundHero = True
+        
+        if not foundHero:
+            return 0
