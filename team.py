@@ -25,4 +25,6 @@ class Team:
         for hero in self.heroes:
             print(hero)
 
-    
+    def add_hero(self, hero):
+        ''' Add Hero object to self.heroes. '''
+        self.heroes.append(hero)
