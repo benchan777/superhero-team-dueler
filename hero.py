@@ -80,7 +80,7 @@ class Hero:
     if not self.abilities and opponent.abilities:
       print("Draw")
     else:
-      while self.current_health and opponent.current_health > 0:
+      while self.current_health > 0 and opponent.current_health > 0:
         opponent.take_damage(self.attack())
         self.take_damage(opponent.attack())
 
