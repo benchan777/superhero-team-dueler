@@ -28,3 +28,11 @@ class Team:
     def add_hero(self, hero):
         ''' Add Hero object to self.heroes. '''
         self.heroes.append(hero)
+
+    def stats(self):
+        ''' Print team statistics '''
+        for hero in self.heroes:
+            if hero.deaths == 0:
+                hero.deaths += 1
+            kd = hero.kills / hero.deaths
+            print("{} Kill/Deaths:{}".format(hero.name,kd))
