@@ -18,7 +18,7 @@ class Arena:
             return Ability with values from user Input
         '''
         name = input("What is the ability name? ")
-        max_damage = input("What is the max damage of the ability? ")
+        max_damage = int(input("What is the max damage of the ability? "))
 
         return Ability(name, max_damage)
 
@@ -27,7 +27,7 @@ class Arena:
             return Weapon with values from user input
         '''
         name = input("What is the weapon name? ")
-        max_damage = input("What is the weapon's max damage? ")
+        max_damage = int(input("What is the weapon's max damage? "))
 
         return Weapon(name, max_damage)
 
@@ -36,7 +36,7 @@ class Arena:
           return Armor with values from user input.
         '''
         name = input("What is the armor name? ")
-        max_block = input("What is the max block of the piece of armor? ")
+        max_block = int(input("What is the max block of the piece of armor? "))
 
         return Armor(name, max_block)
 
